@@ -36,7 +36,7 @@ export default function ContactMe() {
       }
     } catch (error) {
       console.error('Error sending message:', error);
-      setStatus('Server is down. Please try again later.');
+      setStatus('Server is down. Message me on my other accounts instead. Or just fund me pls');
     } finally {
       setIsSubmitting(false);
     }
