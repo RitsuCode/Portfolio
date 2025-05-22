@@ -36,7 +36,7 @@ export default function ContactMe() {
       }
     } catch (error) {
       console.error('Error sending message:', error);
-      setStatus('Failed to send message.');
+      setStatus('Server is down. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
