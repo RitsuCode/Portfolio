@@ -73,7 +73,7 @@ export default function Home() {
             </p>
 
             <div className="flex justify-center lg:justify-start">
-              <a href="/Zaraspe%20CV.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/Zaraspe CV.pdf" target="_blank" rel="noopener noreferrer">
                 <button className="relative group p-[2px] rounded-[10px] bg-gradient-to-r from-cyan-500 via-purple-500 to-orange-500 w-36 md:w-44 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,234,100)]">
                   <span className="block px-6 md:px-8 py-2 bg-gray-800 rounded-lg text-xl md:text-2xl lg:text-3xl font-light text-white transition-all duration-300 group-hover:bg-gray-900 hover:text-cyan-200">
                     View CV
