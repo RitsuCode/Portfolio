@@ -64,17 +64,16 @@ export default function EducationExperienceToggle() {
         <div className="text-gray-400 text-xs sm:text-sm leading-relaxed mt-4 md:mt-0">
           {activeTab === 'education' ? (
             <p>
-              During my time at the University of Batangas, I focused on embedded systems, data
-              structures, and real-time applications. I also participated in robotics competitions,
-              contributed to open-source hardware designs, and served as the lead developer in my
-              capstone project involving IoT and automation.
+              At the University of Batangas, my Computer Engineering studies helped me build a strong foundation in logic, programming, math problem solving, and core engineering principles.
+              Leading group projects also allowed me to develop key soft skills such as communication, time management, and teamwork, which continue to support my growth as both a developer 
+              and collaborator.
             </p>
           ) : (
             <p>
               As a Developer Intern at Valenin IT Services, I worked on full-stack web development
               using React and Django. I implemented dynamic UI components, collaborated in
               Agile sprints, and helped optimize backend APIs for performance. My role also included
-              writing documentation and presenting weekly progress to the team.
+              the use of ticketing systems and participation in daily stand-up meetings.
             </p>
           )}
         </div>
