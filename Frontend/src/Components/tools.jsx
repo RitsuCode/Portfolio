@@ -12,6 +12,7 @@ import {
   SiVite,
   SiJira,
   SiDjango,
+  SiPhp,
 } from 'react-icons/si';
 
 export default function SkillSetShowcase() {
@@ -26,6 +27,7 @@ export default function SkillSetShowcase() {
     { name: 'JavaScript', icon: <SiJavascript /> },
     { name: 'C', icon: <SiC /> },
     { name: 'C++', icon: <SiCplusplus /> },
+    { name: 'PHP', icon: <SiPhp /> },
   ];
 
   const designTools = [
