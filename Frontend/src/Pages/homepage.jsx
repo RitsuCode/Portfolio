@@ -5,6 +5,7 @@ import EducationExperienceToggle from '../Components/experiences';
 import SkillSetShowcase from '../Components/tools';
 import CustomCursor from '../Components/customCursor';
 import ContactMe from '../Components/contact';
+import ProjectsPanel from '../Components/projectsPanel';
 
 export default function Home() {
   const phrases = [
@@ -91,6 +92,13 @@ export default function Home() {
         </div>
 
         <SocmedLinks />
+           {/* ─── Projects ─── */}
+        <div className="w-full h-px bg-white/30 my-10" />
+        <div className='w-full'>
+          <p className="text-2xl md:text-3xl lg:text-4xl text-gray-300 font-light text-left">Projects</p>
+          <ProjectsPanel />
+        </div>
+        {/* ─── Education and Skills ─── */}
         <div className="w-full h-px bg-white/30 my-10" id='about'/>
         <EducationExperienceToggle />
         <SkillSetShowcase />
