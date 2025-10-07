@@ -29,6 +29,9 @@ const DeveloperGrid = React.memo(function DeveloperGrid({ projects }) {
               View
             </a>
           </div>
+            <div className="flex justify-between text-white items-center px-6 py-4 bg-gray-900 border-white/30 border-t-2 bg-opacity-50">
+              <p>{proj.details}</p>
+            </div> 
         </div>
       ))}
     </div>

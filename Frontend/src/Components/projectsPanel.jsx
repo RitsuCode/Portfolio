@@ -11,7 +11,8 @@ const devProjects = [
   {
     title: 'Datalysis',
     imageUrl: '../assets/images/Datalysis.png',
-    link: 'https://datalysis-git-vitedatalysis-ritsucodes-projects.vercel.app/'
+    link: 'https://datalysis-git-vitedatalysis-ritsucodes-projects.vercel.app/',
+    details: 'A data visualization and analysis tool that converts CSV and JSON data into interactive graphs, provides insights, and enables users to compute KPIs or define custom formulas based on uploaded datasets.'
   }
 ];
 
