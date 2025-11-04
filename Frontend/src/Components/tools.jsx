@@ -13,6 +13,8 @@ import {
   SiJira,
   SiDjango,
   SiPhp,
+  SiVuedotjs,
+  SiFirebase
 } from 'react-icons/si';
 
 export default function SkillSetShowcase() {
@@ -28,6 +30,8 @@ export default function SkillSetShowcase() {
     { name: 'C', icon: <SiC /> },
     { name: 'C++', icon: <SiCplusplus /> },
     { name: 'PHP', icon: <SiPhp /> },
+    { name: 'Vue', icon: <SiVuedotjs /> },
+    { name: 'Firebase', icon: <SiFirebase /> },
   ];
 
   const designTools = [

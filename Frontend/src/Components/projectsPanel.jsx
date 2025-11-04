@@ -12,7 +12,13 @@ const devProjects = [
     title: 'Datalysis',
     imageUrl: '../assets/images/Datalysis.png',
     link: 'https://datalysis-git-vitedatalysis-ritsucodes-projects.vercel.app/',
-    details: 'A data visualization and analysis tool that converts CSV and JSON data into interactive graphs, provides insights, and enables users to compute KPIs or define custom formulas based on uploaded datasets.'
+    details: 'A web app built with React, Django, Python, and SQLite that transforms CSV and JSON files into interactive graphs, generates insights, and allows users to compute KPIs or create custom formulas.'
+  },
+  {
+    title: 'Nanucell Store',
+    imageUrl: '../assets/images/nanucell.png',
+    link: 'https://nanucell-htm4.vercel.app/',
+    details: 'A responsive e-commerce site built with Vue.js and Tailwind CSS, powered by Firebase Firestore for real-time data and secure admin management. Deployed on Firebase Hosting for scalability and seamless performance.'
   }
 ];
 
