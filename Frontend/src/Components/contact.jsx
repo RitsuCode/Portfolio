@@ -17,7 +17,7 @@ export default function ContactMe() {
     setStatus('Sending...');
 
     try {
-      const response = await fetch('http://localhost:8000/send', {
+      const response = await fetch('https://portfolio-tkhy.onrender.com/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
