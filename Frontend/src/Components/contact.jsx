@@ -17,7 +17,7 @@ export default function ContactMe() {
     setStatus('Sending...');
 
     try {
-      const response = await fetch('http://localhost:8000/sendEmail.php', {
+      const response = await fetch('http://localhost:8000/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,8 +30,9 @@ export default function ContactMe() {
       }
 
       const result = await response.json();
-      setStatus(result.message);
-      if (result.message.includes('successfully')) {
+      setStatus(result.msg);
+      
+      if (result.msg && result.msg.includes("delivered")) {
         setFormData({ name: '', email: '', message: '' });
       }
     } catch (error) {
@@ -90,7 +91,7 @@ export default function ContactMe() {
         </form>
 
         {status && (
-          <p className={`mt-4 text-xl ${status.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>
+          <p className={`mt-4 text-xl ${status.includes('delivered') ? 'text-green-500' : 'text-red-500'}`}>
             {status}
           </p>
         )}

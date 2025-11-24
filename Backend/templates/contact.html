@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Contact Me</h1>
+    <form id="contactForm" action="/send" method="post">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <textarea name="message" rows="6" placeholder="Your message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+
+    <div id="response" style="margin-top:16px;"></div>
+  </div>
+
+  <script>
+  // Basic AJAX submit so the page doesn't fully reload
+  const form = document.getElementById('contactForm');
+  const resp = document.getElementById('response');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch('/send', { method: 'POST', body: data });
+    const json = await res.json();
+    if (json.status === 'success') {
+      resp.textContent = 'Message sent — thank you!';
+      form.reset();
+    } else {
+      resp.textContent = 'Error: ' + (json.msg || 'unknown');
+    }
+  });
+  </script>
+</body>
+</html>
