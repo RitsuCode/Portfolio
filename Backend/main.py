@@ -4,13 +4,7 @@ from pydantic import BaseModel
 import os
 import smtplib
 from dotenv import load_dotenv, find_dotenv
-print("ENV PATH:", find_dotenv())
 load_dotenv()
-
-print("LOADED ENV VALUES:")
-print("EMAIL_USER =", os.getenv("EMAIL_USER"))
-print("EMAIL_PASS =", os.getenv("EMAIL_PASS"))
-print("EMAIL_TO   =", os.getenv("EMAIL_TO"))
 
 from email.mime.text import MIMEText
 
@@ -19,10 +13,15 @@ app = FastAPI()
 # Allow CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://portfolio-two-lovat-73.vercel.app",  # your FRONTEND domain
+        "http://localhost:5173",  # local dev
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 class Contact(BaseModel):
     name: str
