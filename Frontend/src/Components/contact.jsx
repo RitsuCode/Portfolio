@@ -13,58 +13,19 @@ export default function ContactMe() {
     message: "",
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState("");
-
-  // For local dev → "http://localhost:8000/send"
-  // For production → Replace with your Render backend URL
-  const API_URL ="https://portfolio-tkhy.onrender.com/send"
-;
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSendEmail = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setStatus("Sending...");
 
-    try {
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    const subject = encodeURIComponent("Message from Portfolio");
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
 
-      let result = null;
-
-      try {
-        result = await response.json();
-      } catch {
-        throw new Error("Invalid JSON returned by server");
-      }
-
-      if (!response.ok) {
-        setStatus(result.msg || "Something went wrong.");
-        return;
-      }
-
-      setStatus(result.msg);
-
-      if (result.status === "success") {
-        setFormData({ name: "", email: "", message: "" });
-      }
-    } catch (error) {
-      console.error(error);
-      setStatus(
-        "Server is down. Message me on my socials instead — or fund me pls 😭"
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
+    window.location.href = `mailto:engr.richz@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -76,15 +37,15 @@ export default function ContactMe() {
           say hi, feel free to drop a message!
         </p>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="flex gap-4">
+        <form onSubmit={handleSendEmail} className="space-y-6">
+          <div className="flex gap-4 flex-col md:flex-row">
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               placeholder="Your Name"
-              className="w-1/2 p-3 bg-gray-800 border border-gray-700 rounded-lg placeholder-gray-400 focus:ring-2 focus:ring-cyan-500"
+              className="w-full md:w-1/2 p-3 bg-gray-800 border border-gray-700 rounded-lg placeholder-gray-400 focus:ring-2 focus:ring-cyan-500"
               required
             />
             <input
@@ -93,7 +54,7 @@ export default function ContactMe() {
               value={formData.email}
               onChange={handleChange}
               placeholder="Your Email"
-              className="w-1/2 p-3 bg-gray-800 border border-gray-700 rounded-lg placeholder-gray-400 focus:ring-2 focus:ring-cyan-500"
+              className="w-full md:w-1/2 p-3 bg-gray-800 border border-gray-700 rounded-lg placeholder-gray-400 focus:ring-2 focus:ring-cyan-500"
               required
             />
           </div>
@@ -110,33 +71,29 @@ export default function ContactMe() {
 
           <button
             type="submit"
-            disabled={isSubmitting}
             className="w-full py-[1px] px-[1px] bg-gradient-to-r from-cyan-500 via-purple-500 to-orange-500 text-white font-semibold rounded-[9px] shadow-lg hover:scale-105 transition-transform duration-300"
           >
             <span className="block px-8 py-2 bg-gray-800 rounded-lg font-light text-white">
-              {isSubmitting ? "Sending..." : "Send Message"}
+              Send Message
             </span>
           </button>
         </form>
 
-        {status && (
-          <p
-            className={`mt-4 text-xl ${
-              status.includes("delivered")
-                ? "text-green-500"
-                : "text-red-500"
-            }`}
-          >
-            {status}
-          </p>
-        )}
-
         <div className="mt-12 flex justify-center gap-6">
           {[
-            { href: "https://www.linkedin.com/in/rich-zaraspe-2701342b4/", icon: <FaLinkedin /> },
+            {
+              href: "https://www.linkedin.com/in/rich-zaraspe-2701342b4/",
+              icon: <FaLinkedin />,
+            },
             { href: "https://github.com/Ritsucode", icon: <FaGithub /> },
-            { href: "https://instagram.com/stegoscope", icon: <FaInstagram /> },
-            { href: "https://facebook.com/Rich.Zaraspe", icon: <FaFacebook /> },
+            {
+              href: "https://instagram.com/stegoscope",
+              icon: <FaInstagram />,
+            },
+            {
+              href: "https://facebook.com/Rich.Zaraspe",
+              icon: <FaFacebook />,
+            },
           ].map(({ href, icon }, i) => (
             <a
               key={i}
